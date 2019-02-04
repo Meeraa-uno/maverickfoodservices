@@ -1,0 +1,96 @@
+{% extends 'crm/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<head>
+  <style>
+    body {
+      background-image: url("{% static "images/f3.jpg" %}");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-attachment: fixed;
+      background-color: black;
+    }
+    .page-container
+    {
+      color: white;
+    }
+    .btn-primary{
+      background-color: #F27242;
+      border-color: #F27242;
+    }
+    .btn-primary:hover{
+      background-color: #F27242;
+      border-color: #F27242;
+    }
+    .thumbnail{
+      border-radius: 0px;
+      box-shadow: 0 2px 10px 5px
+    }
+    .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{
+      color: #F27242;
+
+    }
+  </style>
+</head>
+
+   <body>
+    <html>
+            {% if user.is_authenticated %}
+                <div class="page-container">
+
+                    <h2 class="top-menu">Hello {{ user.username }},</h2>
+                    <p>Please choose from below options.</p>
+
+                </div>
+            {% endif %}
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+
+                                        <div class="caption">
+                                            <h2>Customer</h2>
+
+                                            <p><a class="btn btn-primary" href="{% url 'crm:customer_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+
+                                        <div class="caption">
+                                            <h2>Services</h2>
+
+                                            <p><a class="btn btn-primary" href="{% url 'crm:service_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+
+                                        <div class="caption">
+                                            <h2>Products</h2>
+
+                                            <p><a class="btn btn-primary" href="{% url 'crm:product_list' %}"
+                                                  role="button">View
+                                                details &raquo;</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}
